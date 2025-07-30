@@ -28,36 +28,14 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        {/* Elementor CSS стили */}
-        <link
-          rel="stylesheet"
-          href={`${wpUrl}/wp-content/plugins/elementor/assets/css/frontend.min.css`}
-        />
-        <link
-          rel="stylesheet"
-          href={`${wpUrl}/wp-content/plugins/elementor/assets/lib/animations/animations.min.css`}
-        />
-        <link
-          rel="stylesheet"
-          href={`${wpUrl}/wp-content/plugins/elementor/assets/css/common.min.css`}
-          
-        />
-        {/* Elementor Scripts */}
-      <Script
-        src={`${wpUrl}/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js`}
-        strategy="beforeInteractive"
-      />
-      
-      <Script
-        src={`${wpUrl}/wp-content/plugins/elementor/assets/js/frontend.min.js`}
-        strategy="afterInteractive"
-        onLoad={() => {
-          // Инициализация Elementor для Faust.js
-          if (typeof window !== 'undefined' && (window as any).elementorFrontend) {
-            (window as any).elementorFrontend.init();
-          }
-        }}
-      />
+      <link
+rel="stylesheet"
+href="https://worldnomad.iprofiit.pro/wp-content/plugins/elementor/assets/css/frontend.min.css"
+/>
+<script
+src="https://worldnomad.iprofiit.pro/wp-content/plugins/elementor/assets/js/frontend.min.js"
+defer
+/>     
       </Head>
 
       
