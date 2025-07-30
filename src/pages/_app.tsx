@@ -12,7 +12,7 @@ import SiteWrapperProvider from "@/container/SiteWrapperProvider";
 import { Toaster } from "react-hot-toast";
 import NextNProgress from "nextjs-progressbar";
 import themeJson from "../../theme.json";
-
+import Head from "next/head";
 const poppins = Poppins({
   subsets: ["latin"],
   display: "swap",
@@ -21,6 +21,18 @@ const poppins = Poppins({
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
+
+<>
+<Head>
+<link
+rel="stylesheet"
+href="`${process.env.NEXT_PUBLIC_WORDPRESS_URL}`/wp-content/plugins/elementor/a>
+/>
+<script
+src="`${process.env.NEXT_PUBLIC_WORDPRESS_URL}`/plugins/elementor/assets/js/fro>
+defer
+/>
+</Head>
 
   return (
     <FaustProvider pageProps={pageProps}>
@@ -51,5 +63,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         </SiteWrapperProvider>
       </WordPressBlocksProvider>
     </FaustProvider>
+  </>
   );
 }
