@@ -13,6 +13,8 @@ import { Toaster } from "react-hot-toast";
 import NextNProgress from "nextjs-progressbar";
 import themeJson from "../../theme.json";
 import Head from "next/head";
+import Script from "next/script";
+
 const poppins = Poppins({
   subsets: ["latin"],
   display: "swap",
@@ -21,48 +23,71 @@ const poppins = Poppins({
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
-
-<>
-<Head>
-<link
-rel="stylesheet"
-href="`${process.env.NEXT_PUBLIC_WORDPRESS_URL}`/wp-content/plugins/elementor/a>
-/>
-<script
-src="`${process.env.NEXT_PUBLIC_WORDPRESS_URL}`/plugins/elementor/assets/js/fro>
-defer
-/>
-</Head>
+  const wpUrl = process.env.NEXT_PUBLIC_WORDPRESS_URL;
 
   return (
-    <FaustProvider pageProps={pageProps}>
-      <WordPressBlocksProvider
-        config={{
-          blocks,
-          theme: fromThemeJson(themeJson),
+    <>
+      <Head>
+        {/* Elementor CSS стили */}
+        <link
+          rel="stylesheet"
+          href={`${wpUrl}/wp-content/plugins/elementor/assets/css/frontend.min.css`}
+        />
+        <link
+          rel="stylesheet"
+          href={`${wpUrl}/wp-content/plugins/elementor/assets/lib/animations/animations.min.css`}
+        />
+        <link
+          rel="stylesheet"
+          href={`${wpUrl}/wp-content/plugins/elementor/assets/css/common.min.css`}
+        />
+      </Head>
+
+      {/* Elementor Scripts */}
+      <Script
+        src={`${wpUrl}/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js`}
+        strategy="beforeInteractive"
+      />
+      
+      <Script
+        src={`${wpUrl}/wp-content/plugins/elementor/assets/js/frontend.min.js`}
+        strategy="afterInteractive"
+        onLoad={() => {
+          // Инициализация Elementor для Faust.js
+          if (typeof window !== 'undefined' && (window as any).elementorFrontend) {
+            (window as any).elementorFrontend.init();
+          }
         }}
-      >
-        <SiteWrapperProvider {...pageProps}>
-          <style jsx global>{`
-            html {
-              font-family: ${poppins.style.fontFamily};
-            }
-          `}</style>
-          <NextNProgress color="#818cf8" />
-          <Component {...pageProps} key={router.asPath} />
-          <Toaster
-            position="bottom-left"
-            toastOptions={{
-              style: {
-                fontSize: "14px",
-                borderRadius: "0.75rem",
-              },
-            }}
-            containerClassName="text-sm"
-          />
-        </SiteWrapperProvider>
-      </WordPressBlocksProvider>
-    </FaustProvider>
-  </>
+      />
+
+      <FaustProvider pageProps={pageProps}>
+        <WordPressBlocksProvider
+          config={{
+            blocks,
+            theme: fromThemeJson(themeJson),
+          }}
+        >
+          <SiteWrapperProvider {...pageProps}>
+            <style jsx global>{`
+              html {
+                font-family: ${poppins.style.fontFamily};
+              }
+            `}</style>
+            <NextNProgress color="#818cf8" />
+            <Component {...pageProps} key={router.asPath} />
+            <Toaster
+              position="bottom-left"
+              toastOptions={{
+                style: {
+                  fontSize: "14px",
+                  borderRadius: "0.75rem",
+                },
+              }}
+              containerClassName="text-sm"
+            />
+          </SiteWrapperProvider>
+        </WordPressBlocksProvider>
+      </FaustProvider>
+    </>
   );
 }
