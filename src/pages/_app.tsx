@@ -40,10 +40,9 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <link
           rel="stylesheet"
           href={`${wpUrl}/wp-content/plugins/elementor/assets/css/common.min.css`}
+          
         />
-      </Head>
-
-      {/* Elementor Scripts */}
+        {/* Elementor Scripts */}
       <Script
         src={`${wpUrl}/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js`}
         strategy="beforeInteractive"
@@ -59,6 +58,9 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           }
         }}
       />
+      </Head>
+
+      
 
       <FaustProvider pageProps={pageProps}>
         <WordPressBlocksProvider
