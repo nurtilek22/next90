@@ -31,17 +31,35 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       <link
 rel="stylesheet"
 href="https://worldnomad.iprofiit.pro/wp-content/plugins/elementor/assets/css/frontend.min.css"
+/>
+         <link
+rel="stylesheet"
         href="https://worldnomad.iprofiit.pro/wp-content/plugins/elementor/assets/css/frontend-rtl.min.css"
+/>
+         <link
+rel="stylesheet"
         href="https://worldnomad.iprofiit.pro/wp-content/plugins/elementor/assets/css/frontend-rtl.css"
+/>
+         <link
+rel="stylesheet"
         href="https://worldnomad.iprofiit.pro/wp-content/plugins/elementor/assets/css/frontend.css"
 />
 <script
 src="https://worldnomad.iprofiit.pro/wp-content/plugins/elementor/assets/js/frontend.min.js"
+defer
+/>  
+        <script
   src="https://worldnomad.iprofiit.pro/wp-content/plugins/elementor/assets/js/frontend-modules.min.js"
-  src="https://worldnomad.iprofiit.pro/wp-content/plugins/elementor/assets/js/frontend.js"
+defer
+/>  
+        <script
   src="https://worldnomad.iprofiit.pro/wp-content/plugins/elementor/assets/js/frontend-modules.js"
 defer
-/>     
+/>  
+        <script
+  src="https://worldnomad.iprofiit.pro/wp-content/plugins/elementor/assets/js/frontend-modules.js"
+defer
+/>  
       </Head>
 
       
