@@ -47,19 +47,19 @@ rel="stylesheet"
 <script
 src="https://worldnomad.iprofiit.pro/wp-content/plugins/elementor/assets/js/frontend.min.js"
 defer
-/>  
+></script>  
         <script
   src="https://worldnomad.iprofiit.pro/wp-content/plugins/elementor/assets/js/frontend-modules.min.js"
 defer
-/>  
+></script>
         <script
   src="https://worldnomad.iprofiit.pro/wp-content/plugins/elementor/assets/js/frontend-modules.js"
 defer
-/>  
+></script>
         <script
   src="https://worldnomad.iprofiit.pro/wp-content/plugins/elementor/assets/js/frontend-modules.js"
 defer
-/>  
+></script>  
       </Head>
 
       
