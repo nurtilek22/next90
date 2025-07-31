@@ -68,7 +68,7 @@ defer
         <WordPressBlocksProvider
           config={{
             blocks,
-            theme: fromThemeJson(themeJson),
+            theme: themeJson,
           }}
         >
           <SiteWrapperProvider {...pageProps}>
