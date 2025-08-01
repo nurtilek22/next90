@@ -3,17 +3,18 @@ import BackgroundSection from "@/components/BackgroundSection/BackgroundSection"
 import MyWordPressBlockViewer from "@/components/MyWordPressBlockViewer";
 import classNames from "@/utils/classNames";
 import { gql } from "@apollo/client";
-import { WordPressBlock, getStyles, useBlocksTheme } from "@faustwp/blocks";
+// ИСПРАВЛЕНИЕ 1: Полностью удаляем getBlockStyles из импорта.
+import { WordPressBlock } from '@faustwp/blocks';
 import React from "react";
-//
+
 const NcmazFaustBlockGroup: WordPressBlock<
   NcmazFaustBlockGroupFragmentFragment
 > = (props) => {
-  // get the BlocksTheme object
-  const theme = useBlocksTheme();
-  const style = getStyles(theme, { ...props });
+  // ИСПРАВЛЕНИЕ 2: Удаляем вызов getBlockStyles.
+  // const style = getBlockStyles(props);
 
-  const { attributes } = props || {};
+  // ИСПРАВЛЕНИЕ 3: Получаем style напрямую из props, как и attributes.
+  const { attributes, style } = props || {};
   const { className, hasBackground, variation } = attributes || {};
 
   return (
